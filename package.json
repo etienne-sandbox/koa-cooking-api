@@ -1,0 +1,30 @@
+{
+  "name": "api-cooking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/main.js",
+    "dev": "nodemon ./src/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "bcrypt": "^5.0.1",
+    "better-sqlite3": "^7.5.0",
+    "fs-extra": "^10.0.0",
+    "http-errors": "^2.0.0",
+    "knex": "^1.0.2",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-error": "^3.2.0",
+    "nanoid": "^3.2.0",
+    "zod": "^3.11.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
