@@ -6,7 +6,7 @@ import { authenticated } from "../middlewares/authenticated.js";
 
 export const ingredientsRouter = new Router();
 
-ingredientsRouter.get("/", authenticated(), async (ctx) => {
+ingredientsRouter.get("/", async (ctx) => {
   const ingredients = await findAllIngredients();
   ctx.body = ingredients;
 });
