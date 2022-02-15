@@ -1,6 +1,7 @@
 import httpErrors from "http-errors";
+import { Schema } from "zod";
 
-export function validateZod(schema, body) {
+export function validateZod(schema: Schema<any>, body: unknown) {
   const parsed = schema.safeParse(body);
   if (parsed.success === false) {
     const errorsText = Object.entries(parsed.error.flatten().fieldErrors)

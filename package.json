@@ -31,7 +31,12 @@
     "zod": "^3.11.6"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/fs-extra": "^9.0.13",
     "@types/jest": "^27.4.0",
+    "@types/koa": "^2.13.4",
+    "@types/koa__router": "^8.0.11",
+    "@types/koa-bodyparser": "^4.3.5",
     "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2"

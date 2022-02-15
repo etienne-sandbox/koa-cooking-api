@@ -1,8 +1,12 @@
 import httpErrors from "http-errors";
 import { findUserByToken } from "../database/index.js";
+import { Middleware } from "koa";
 
-// options: { allowOnlyUsername: ['user1', 'user2'] }
-export function authenticated(options = {}) {
+type Options = {
+  allowOnlyUsername?: Array<string>;
+};
+
+export function authenticated(options: Options = {}): Middleware {
   return async function authenticatedMiddleware(ctx, next) {
     const authorization = ctx.get("Authorization");
     if (!authorization) {

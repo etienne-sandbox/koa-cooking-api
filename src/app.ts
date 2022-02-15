@@ -20,7 +20,7 @@ export async function createApp() {
 
   router.use(
     "/recipes",
-    authenticated,
+    authenticated(),
     recipesRouter.routes(),
     recipesRouter.allowedMethods()
   );
