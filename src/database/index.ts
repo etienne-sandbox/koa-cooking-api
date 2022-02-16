@@ -6,7 +6,7 @@ export async function insertIngredient(data: {
   name: string;
   price: number;
   unit?: string | null;
-}) {
+}): Promise<string> {
   const id = createIngredientId();
   await knex.table("ingredients").insert({
     id: id,
@@ -17,7 +17,14 @@ export async function insertIngredient(data: {
   return id;
 }
 
-export async function findAllIngredients() {
+type Ingredient = {
+  id: string;
+  name: string;
+  unit: string | null;
+  price: number | null;
+};
+
+export async function findAllIngredients(): Promise<Array<Ingredient>> {
   return knex.select("*").from("ingredients");
 }
 
@@ -35,7 +42,12 @@ export async function insertUser(
   return token;
 }
 
-export async function findUserByToken(token: string) {
+type User = {
+  username: string;
+  token: string;
+};
+
+export async function findUserByToken(token: string): Promise<User | null> {
   const user = (
     await knex.select("*").from("users").where("token", token).limit(1)
   )[0];
@@ -50,7 +62,7 @@ export async function findUserByToken(token: string) {
 export async function findUserByUsernamePassword(
   username: string,
   password: string
-) {
+): Promise<User | null> {
   const user = (
     await knex.select("*").from("users").where("username", username).limit(1)
   )[0];

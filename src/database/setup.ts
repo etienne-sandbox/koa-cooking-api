@@ -3,7 +3,7 @@ import fse from "fs-extra";
 import { dirname } from "node:path";
 import { createIngredientId } from "./utils.js";
 
-export async function setupDatabase() {
+export async function setupDatabase(): Promise<void> {
   const dbAlreadyExists = fse.existsSync(SQLITE_FILE_PATH);
 
   await fse.ensureDir(dirname(SQLITE_FILE_PATH));
